@@ -1,175 +1,169 @@
 # 🚑 Post-Disaster Human Detection Rover using LoRa Mesh Network
 
-A swarm-based cyber-physical rescue rover designed for post-disaster search and rescue operations. The system combines autonomous navigation, Edge Impulse AI vision, GPS localization, and long-range LoRa mesh communication to detect human survivors and relay their location to a remote rescue station even when conventional communication infrastructure is unavailable.
+> An autonomous swarm-based search and rescue system that combines **Edge Impulse AI**, **ESP32-CAM**, **Raspberry Pi Pico W**, **ESP8266**, **LoRa Mesh Networking**, and **GPS localization** for real-time post-disaster human detection and communication.
 
 ---
 
-# Project Overview
+# 📖 Project Overview
 
-Natural disasters often damage cellular and internet infrastructure, making communication difficult for rescue teams.
+In natural disasters such as earthquakes, landslides, and collapsed buildings, conventional communication infrastructure may become unavailable, making rescue operations difficult.
 
-This project develops a dual-rover system capable of
+This project presents a **dual-rover cyber-physical search and rescue system** capable of autonomously navigating disaster environments, detecting trapped humans using AI vision, determining GPS coordinates, and transmitting alerts through a long-range **LoRa Mesh Network** to a remote rescue station.
 
-- Autonomous obstacle avoidance
-- Human detection using Edge Impulse AI
-- GPS location tracking
-- Long-range LoRa communication
-- Mesh-based packet forwarding
-- Remote monitoring through a dashboard
-
-Each rover works independently while also acting as a communication node for the swarm.
+Each rover acts as both a search unit and a communication relay, allowing reliable message forwarding even when direct communication with the base station is not possible.
 
 ---
 
-# Features
+# ✨ Features
 
-- Autonomous obstacle avoidance
-- Dual-rover swarm architecture
-- LoRa RF Mesh networking (433 MHz)
-- Edge Impulse AI human detection
-- ESP32-CAM vision processing
-- GPS-based victim localization
-- RSSI monitoring
-- Packet forwarding between rovers
-- Multi-controller architecture
-- Rescue station dashboard
+- 🤖 AI-based Human Detection using Edge Impulse
+- 🚙 Autonomous Obstacle Avoidance
+- 📡 Long-Range LoRa Mesh Communication
+- 📍 GPS-based Survivor Localization
+- 🌐 Multi-Rover Swarm Architecture
+- 📶 Packet Forwarding Between Rovers
+- 📊 RSSI Monitoring
+- ⚡ Real-Time Alert Generation
+- 📱 Remote Rescue Station Monitoring
 
 ---
 
-# Hardware
+# 🛠️ Hardware Components
 
 - Raspberry Pi Pico W
 - ESP32 AI Thinker Camera
 - ESP8266 NodeMCU
-- SX1278 LoRa Module
-- Neo-6M GPS
+- SX1278 LoRa (433 MHz)
+- Neo-6M GPS Module
 - MPU6050 IMU
 - HC-SR04 Ultrasonic Sensors
 - L298N Motor Driver
 - DC Geared Motors
-- 18650 Li-ion Battery Pack
+- Li-ion Battery Pack
 
 ---
 
-# Software
+# 💻 Software & Tools
 
 - MicroPython
 - Arduino IDE
-- Edge Impulse
+- Edge Impulse Studio
 - LoRa Library
 - TinyGPS++
-- Raspberry Pi Pico SDK
+- VS Code / Thonny IDE
 
 ---
 
-# System Architecture
+# 🏗️ System Architecture
 
-(Add block diagram here)
+<p align="center">
+<img src="results_image/block diagram.jpg" width="900">
+</p>
 
----
-
-# Working Principle
-
-1. Rover autonomously explores the disaster area.
-2. Ultrasonic sensors avoid obstacles.
-3. ESP32-CAM performs Edge Impulse object detection.
-4. Human detection generates an alert.
-5. Pico W formats the packet.
-6. ESP8266 appends GPS information.
-7. LoRa transmits the packet.
-8. Nearby rover forwards the packet if required.
-9. Rescue station receives and displays victim location.
+The system consists of two autonomous rovers and one rescue station. Each rover integrates a Raspberry Pi Pico W for motion control, an ESP32-CAM for AI-based human detection, an ESP8266 for LoRa communication, GPS for localization, and ultrasonic sensors for obstacle avoidance. The rescue station receives alerts and displays survivor information.
 
 ---
 
-# Communication Flow
+# 🔄 Navigation Flowchart
 
-ESP32-CAM
-↓
+<p align="center">
+<img src="results_image/flowchart.jpg" width="500">
+</p>
 
-Pico W
-
-↓
-
-ESP8266
-
-↓
-
-LoRa Mesh
-
-↓
-
-Base Station
-
-↓
-
-Dashboard
+The rover continuously explores the environment by reading ultrasonic sensor data, avoiding obstacles, performing AI-based human detection, and transmitting emergency alerts through the LoRa mesh network.
 
 ---
 
-# Results
+# ⚙️ Working Principle
 
-- Successful autonomous navigation
-- Human detection using Edge Impulse
-- GPS location transmission
-- Multi-hop LoRa communication
-- Reliable packet forwarding
-- RSSI monitoring
+1. System initializes all sensors and communication modules.
+2. Rover autonomously navigates using ultrasonic sensors.
+3. ESP32-CAM performs real-time AI-based human detection.
+4. Upon detecting a person, GPS coordinates are acquired.
+5. Detection information is forwarded to the ESP8266.
+6. ESP8266 transmits the packet through the LoRa Mesh Network.
+7. Intermediate rovers relay packets when required.
+8. Rescue station receives and displays the alert.
 
 ---
 
-# Images
-
-## System Architecture
-
-(Add architecture image)
-
-## Autonomous Navigation Flowchart
-
-(Add flowchart)
+# 📸 Experimental Results
 
 ## Human Detection
 
-(Add detection screenshot)
+<p align="center">
+<img src="results_image/human detection message.jpg" width="750">
+</p>
 
-## LoRa Alert
-
-(Add transmission screenshot)
-
----
-
-# Applications
-
-- Search and Rescue
-- Earthquake Response
-- Landslide Monitoring
-- Flood Rescue
-- Forest Search Operations
-- Defence Surveillance
+The Edge Impulse model successfully detects human presence and generates detection messages with high confidence.
 
 ---
 
-# Future Improvements
+## Alert Received at Rescue Station
 
-- Multi-hop routing optimization
-- SLAM-based navigation
+<p align="center">
+<img src="results_image/alert from rover1.jpg" width="750">
+</p>
+
+When a human is detected, the rescue station receives an alert containing:
+
+- Human detection status
+- GPS coordinates
+- Packet ID
+- RSSI value
+
+This enables rapid localization of survivors.
+
+---
+
+## LoRa Packet Transmission
+
+<p align="center">
+<img src="results_image/rover1 data transmission.jpg" width="750">
+</p>
+
+The communication log demonstrates successful transmission and forwarding of detection packets between rovers through the LoRa mesh network before reaching the rescue station.
+
+---
+
+# 📈 Key Achievements
+
+- ✅ Autonomous navigation
+- ✅ AI-based human detection
+- ✅ GPS localization
+- ✅ Long-range LoRa communication
+- ✅ Multi-hop packet forwarding
+- ✅ Reliable rescue station alerts
+
+---
+
+# 🌍 Applications
+
+- 🚑 Search and Rescue Missions
+- 🌋 Earthquake Response
+- 🌊 Flood Rescue
+- ⛰️ Landslide Operations
+- 🏭 Industrial Safety
+- 🪖 Defence Surveillance
+- 🌲 Forest Search Operations
+
+---
+
+# 🚀 Future Improvements
+
+- SLAM-based autonomous mapping
 - Thermal camera integration
-- Drone-rover collaboration
-- Cloud dashboard
-- AI victim classification
+- Multi-hop routing optimization
+- Drone and rover collaboration
+- Cloud-based monitoring dashboard
+- Victim classification using deep learning
 
 ---
 
-# Author
+# 👨‍💻 Author
 
-Harikrishnan N.
+**Harikrishnan N.**
 
 B.Tech Electrical and Electronics Engineering
 
 Amrita Vishwa Vidyapeetham
-
----
-
-# License
-
-MIT License
